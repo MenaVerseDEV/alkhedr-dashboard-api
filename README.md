@@ -1,1 +1,0 @@
-# alkhedr-dashboard-api

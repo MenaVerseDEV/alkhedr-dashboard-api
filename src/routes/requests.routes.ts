@@ -1,0 +1,12 @@
+import { Router } from "express";
+import { createRequest, getAllRequests,getRequest,updateRequest ,getAllEmployeeRequests , addEmployeeNote} from "../controllers/requests.controller";
+import verifyToken from "../middlewares/verifyToken";
+import authorize from "../middlewares/authorize";
+const router = Router();
+router.post("/", createRequest);
+router.get("/", verifyToken , authorize('admin' , 'super-admin' , 'employee') ,getAllRequests);
+router.get("/employee", verifyToken , authorize('admin' , 'super-admin'), getAllEmployeeRequests);
+router.get("/:reqId", verifyToken , authorize('admin','employee' , 'super-admin'), getRequest);
+router.put("/:reqId",verifyToken,authorize('employee', 'admin' , 'super-admin'), updateRequest);
+router.patch("/:reqId",verifyToken,authorize('employee', 'admin' , 'super-admin'), addEmployeeNote);
+export default router;
