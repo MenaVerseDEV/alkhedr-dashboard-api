@@ -1,6 +1,6 @@
 import multer from "multer";
 const multerPasre = multer({
-    dest: "uploads/",
+    storage: multer.memoryStorage()
 });
 import { Router } from "express";
 const router = Router();
