@@ -1,14 +1,14 @@
 {
   "name": "node-ts",
   "version": "1.0.0",
-  "main": "dist/server.js",
+  "main": "dist/server",
   "engines": {
     "node":"20.x"
   },
   "scripts": {
     "build": "npx tsc",
     "prestart": "npm run build",
-    "start": "node dist/server.js",
+    "start": "node dist/server",
     "dev": "npx ts-node-dev src/server.ts"
   },
   "keywords": [],
